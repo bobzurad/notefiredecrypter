@@ -1,0 +1,20 @@
+{
+  "name": "notefiredecrypter",
+  "version": "0.1.1",
+  "description": "A tool to decrypt NoteFire backup files",
+  "homepage": "https://github.com/bobzurad/notefiredecrypter#readme",
+  "bugs": {
+    "url": "https://github.com/bobzurad/notefiredecrypter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobzurad/notefiredecrypter.git"
+  },
+  "license": "MIT",
+  "author": "Bob Zurad",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
