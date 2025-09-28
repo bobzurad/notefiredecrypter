@@ -5,3 +5,5 @@ require("sjcl");
   parse backup file
   write decrypted notes to output file
 */
+
+console.log("hello world");
