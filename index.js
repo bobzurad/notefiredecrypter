@@ -1,6 +1,6 @@
-require("sjcl");
-
 var fs = require("fs");
+var sjcl = require("sjcl");
+
 var encryptedNotes;
 
 var note = {
@@ -28,6 +28,8 @@ function callback(err, data) {
     // build note object
     note[key] = value;
 
+    // TODO: build a buffer of sibling notes before decrypting (because we don't have key yet)
+
     // get authId
     if (
       key !== "notes" &&
@@ -38,12 +40,32 @@ function callback(err, data) {
       key !== "title" &&
       !key.startsWith("-")
     ) {
-      // key must be the authId
-      decryptNote(note, key);
+      // we now have the entire note
+      if (note.isEncrypted === true) {
+        // key must be the authId
+        decryptNote(key, noteId, note);
+      } else {
+        console.log(noteId);
+        console.log(note.title);
+        console.log(note.content);
+      }
+      // clear note object
+      note = {
+        content: "",
+        dateCreated: new Date(),
+        dateUpdated: new Date(),
+        isEncrypted: false,
+        title: "",
+      };
     }
   });
 }
 
-function decryptNote(note, key) {
-  console.log(key);
+// decrypts the note with the given key
+function decryptNote(key, noteId, note) {
+  var title = sjcl.decrypt(key, note.title);
+  var content = sjcl.decrypt(key, note.content);
+  console.log(noteId);
+  console.log(title);
+  console.log(content);
 }
