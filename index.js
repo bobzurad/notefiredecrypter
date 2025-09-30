@@ -1,3 +1,3 @@
-import { decrypter } from "./decrypter.js";
+import { decrypter } from "./src/decrypter.js";
 
 decrypter("input/encrypted.json");
