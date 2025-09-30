@@ -8,5 +8,6 @@ test("adds 1 + 2 to equal 3", () => {
 test("decrypts notes", async () => {
   var subject = await decrypter("./input/encrypted.test.json");
   expectTypeOf(subject).toBeObject();
-  expect(subject.noteIds.length).toBe(6);
+  expect(subject.noteIds.length).toBe(10);
+  expect(subject.notes.length).toBe(10);
 });

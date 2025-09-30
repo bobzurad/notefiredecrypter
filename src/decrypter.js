@@ -13,6 +13,7 @@ export async function decrypter(path) {
 
   var currentNoteId = "";
   var noteIds = [];
+  var notes = [];
 
   // read file
   //fs.readFile(path, callback);
@@ -28,6 +29,7 @@ export async function decrypter(path) {
     if (key.startsWith("-")) {
       currentNoteId = key;
       noteIds.push(key);
+      notes.push(note);
     }
 
     // build note object
@@ -65,7 +67,7 @@ export async function decrypter(path) {
     }
   });
 
-  return { noteIds };
+  return { noteIds, notes };
 }
 
 // decrypts the note with the given key
