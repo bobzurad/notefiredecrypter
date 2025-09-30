@@ -1,20 +1,24 @@
 import * as fs from "fs";
 import sjcl from "sjcl";
 
+// note obj
+var note = {
+  content: "",
+  dateCreated: new Date(),
+  dateUpdated: new Date(),
+  isEncrypted: false,
+  title: "",
+};
+
+var currentNoteId = "";
+var noteIds = [];
+var notes = [];
+
+export function parse(path) {}
+
+export function decrypt(notes) {}
+
 export async function decrypter(path) {
-  // note obj
-  var note = {
-    content: "",
-    dateCreated: new Date(),
-    dateUpdated: new Date(),
-    isEncrypted: false,
-    title: "",
-  };
-
-  var currentNoteId = "";
-  var noteIds = [];
-  var notes = [];
-
   // read file
   //fs.readFile(path, callback);
   const data = fs.readFileSync(path, { encoding: "utf8", flag: "r" });
@@ -78,8 +82,6 @@ function decryptNote(key, currentNoteId, note) {
   console.log(title);
   console.log(content);
 }
-
-
 
 export function sum(a, b) {
   return a + b;
