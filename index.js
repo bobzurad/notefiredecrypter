@@ -1,3 +1,5 @@
-import { decrypter } from "./src/decrypter.js";
+import { parse, decrypt } from "./src/decrypter.js";
 
-decrypter("ignore/encrypted.json");
+const { notes } = parse("ignore/encrypted.json");
+
+decrypt(notes);

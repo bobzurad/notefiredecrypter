@@ -4,6 +4,7 @@ import sjcl from "sjcl";
 // note obj
 var note = {
   keyId: "",
+  noteId: "",
   content: "",
   dateCreated: new Date(),
   dateUpdated: new Date(),
@@ -11,10 +12,9 @@ var note = {
   title: "",
 };
 
-var currentNoteId = "";
-
+// parse the encrypted json file from the given path
 export function parse(path) {
-  var notesWithKey = [];
+  const notesWithKey = [];
   var subsetNotesWithKey = [];
 
   const data = fs.readFileSync(path, { encoding: "utf8", flag: "r" });
@@ -24,19 +24,20 @@ export function parse(path) {
     // build note object
     note[key] = value;
 
-    // get currentNoteId
     if (key.startsWith("-")) {
-      currentNoteId = key;
+      // get current note id
+      note.noteId = key;
       subsetNotesWithKey.push(note);
 
       // clear note object
       note = {
+        keyId: "",
+        noteId: "",
         content: "",
         dateCreated: new Date(),
         dateUpdated: new Date(),
         isEncrypted: false,
         title: "",
-        keyId: "",
       };
     }
 
@@ -62,32 +63,33 @@ export function parse(path) {
   return { notes: notesWithKey.flat() };
 }
 
+// decrypts the provided notes, returns decrypted notes
 export function decrypt(notes) {
-  if (note.isEncrypted === true) {
-    // key must be the authId
-    decryptNote(key, currentNoteId, note);
-  } else {
-    console.log(currentNoteId);
-    console.log(note.title);
-    console.log(note.content);
-  }
-  // clear note object
-  note = {
-    content: "",
-    dateCreated: new Date(),
-    dateUpdated: new Date(),
-    isEncrypted: false,
-    title: "",
-  };
+  var title = "";
+  var content = "";
+  const decryptedNotes = [];
 
-  return { noteIds, notes };
-}
+  notes.forEach((note) => {
+    if (note.isEncrypted === true) {
+      title = sjcl.decrypt(note.keyId, note.title);
+      content = sjcl.decrypt(note.keyId, note.content);
+    } else {
+      title = note.title;
+      content = note.content;
+    }
+    decryptedNotes.push({
+      keyId: note.keyId,
+      noteId: note.noteId,
+      content: content,
+      dateCreated: note.dateCreated,
+      dateUpdated: note.dateUpdated,
+      isEncrypted: note.isEncrypted,
+      title: title,
+    });
+    console.log(note.noteId);
+    console.log(title);
+    console.log(content);
+  });
 
-// decrypts the note with the given key
-function decryptNote(key, currentNoteId, note) {
-  var title = sjcl.decrypt(key, note.title);
-  var content = sjcl.decrypt(key, note.content);
-  console.log(currentNoteId);
-  console.log(title);
-  console.log(content);
+  return { decryptedNotes };
 }
