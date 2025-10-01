@@ -3,6 +3,7 @@ import sjcl from "sjcl";
 
 // note obj
 var note = {
+  keyId: "",
   content: "",
   dateCreated: new Date(),
   dateUpdated: new Date(),
@@ -11,20 +12,22 @@ var note = {
 };
 
 var currentNoteId = "";
-var noteIds = [];
-var notes = [];
 
 export function parse(path) {
+  var notesWithKey = [];
+  var subsetNotesWithKey = [];
+
   const data = fs.readFileSync(path, { encoding: "utf8", flag: "r" });
 
   // parse JSON with reviver
   var encryptedNotes = JSON.parse(data, (key, value) => {
-    //
+    // build note object
+    note[key] = value;
+
     // get currentNoteId
     if (key.startsWith("-")) {
       currentNoteId = key;
-      noteIds.push(key);
-      notes.push(note);
+      subsetNotesWithKey.push(note);
 
       // clear note object
       note = {
@@ -33,43 +36,50 @@ export function parse(path) {
         dateUpdated: new Date(),
         isEncrypted: false,
         title: "",
+        keyId: "",
       };
     }
-    // build note object
-    note[key] = value;
+
+    if (
+      key !== "id" &&
+      key !== "notes" &&
+      key !== "content" &&
+      key !== "dateCreated" &&
+      key !== "dateUpdated" &&
+      key !== "isEncrypted" &&
+      key !== "title" &&
+      !key.startsWith("-")
+    ) {
+      // all notes of this key have been parsed
+      subsetNotesWithKey.forEach((n) => {
+        n.keyId = key;
+      });
+      notesWithKey.push(subsetNotesWithKey);
+      //clear subset array
+      subsetNotesWithKey = [];
+    }
   });
-  return { noteIds, notes };
+  return { notes: notesWithKey.flat() };
 }
 
 export function decrypt(notes) {
-  // get authId
-  if (
-    key !== "notes" &&
-    key !== "content" &&
-    key !== "dateCreated" &&
-    key !== "dateUpdated" &&
-    key !== "isEncrypted" &&
-    key !== "title" &&
-    !key.startsWith("-")
-  ) {
-    // we now have the entire note
-    if (note.isEncrypted === true) {
-      // key must be the authId
-      decryptNote(key, currentNoteId, note);
-    } else {
-      console.log(currentNoteId);
-      console.log(note.title);
-      console.log(note.content);
-    }
-    // clear note object
-    note = {
-      content: "",
-      dateCreated: new Date(),
-      dateUpdated: new Date(),
-      isEncrypted: false,
-      title: "",
-    };
+  if (note.isEncrypted === true) {
+    // key must be the authId
+    decryptNote(key, currentNoteId, note);
+  } else {
+    console.log(currentNoteId);
+    console.log(note.title);
+    console.log(note.content);
   }
+  // clear note object
+  note = {
+    content: "",
+    dateCreated: new Date(),
+    dateUpdated: new Date(),
+    isEncrypted: false,
+    title: "",
+  };
+
   return { noteIds, notes };
 }
 
