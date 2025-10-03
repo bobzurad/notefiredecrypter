@@ -1,9 +1,14 @@
 import { expect, expectTypeOf, test } from "vitest";
-import { parse, decrypt } from "./decrypter.js";
+import { getFileName, parse, decrypt } from "./decrypter.js";
+
+test("verify filename is parsed correctly", () => {
+  const subject = getFileName("some_path/some_file_to_decrypt.json");
+  expect(subject).toBe("some_file_to_decrypt.json");
+});
 
 test("verify notes are parsed correctly", () => {
   // arrange & act
-  const subject = parse("./input/encrypted.test.json");
+  const subject = parse("./test-data/encrypted.test.json");
 
   // assert
   expectTypeOf(subject).toBeObject();
@@ -50,10 +55,11 @@ test("verify notes are parsed correctly", () => {
 
 test("verify notes are decrypted", () => {
   // arrange
-  const { notes } = parse("./input/encrypted.test.json");
+  const path = "./test-data/encrypted.test.json";
+  const { notes } = parse(path);
 
   // act
-  const subject = decrypt(notes);
+  const subject = decrypt(path, notes);
 
   // assert
   expectTypeOf(subject).toBeObject();

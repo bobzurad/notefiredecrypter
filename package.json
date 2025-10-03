@@ -15,7 +15,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js > ignore/out.txt",
+    "start": "node index.js",
     "test": "vitest"
   },
   "dependencies": {

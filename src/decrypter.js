@@ -12,6 +12,14 @@ var note = {
   title: "",
 };
 
+// extract the file name from the given path
+export function getFileName(path) {
+  if (path) {
+    return path.substring(path.lastIndexOf("/") + 1);
+  }
+  return null;
+}
+
 // parse the encrypted json file from the given path
 export function parse(path) {
   const notesWithKey = [];
@@ -64,10 +72,14 @@ export function parse(path) {
 }
 
 // decrypts the provided notes, returns decrypted notes
-export function decrypt(notes) {
+// TODO: move code that writes output to a separate function
+export function decrypt(path, notes) {
+  const outputPath = path.substring(0, path.lastIndexOf(".")) + ".decrypted.txt";
+  const outputStream = fs.createWriteStream(outputPath);
+  const decryptedNotes = [];
+
   var title = "";
   var content = "";
-  const decryptedNotes = [];
 
   notes.forEach((note) => {
     if (note.isEncrypted === true) {
@@ -86,10 +98,12 @@ export function decrypt(notes) {
       isEncrypted: note.isEncrypted,
       title: title,
     });
-    console.log(note.noteId);
-    console.log(title);
-    console.log(content);
+    outputStream.write(note.noteId + "\n");
+    outputStream.write(title + "\n");
+    outputStream.write(content + "\n");
   });
+
+  outputStream.end();
 
   return { decryptedNotes };
 }

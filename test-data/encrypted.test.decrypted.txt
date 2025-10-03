@@ -1,0 +1,109 @@
+-KanDeYODblxDFfhbJNR
+Your First Note!
+<p>Welcome to FireNote!asdasdf asdf asdf</p>
+-KPVoMqZYmZB4yA95uT7
+React
+<p><strong>proxy API calls with create-react-app:&nbsp;&nbsp;<code><a href="https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually">https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually</a></code></strong></p>
+<p><strong>useCallback to avoid infinite loops:</strong> https://medium.com/@infinitypaul/reactjs-useeffect-usecallback-simplified-91e69fb0e7a3</p>
+<p><strong>Wrapping dispatch to recognize Promises:&nbsp;</strong> <a href="https://egghead.io/lessons/javascript-redux-wrapping-dispatch-to-recognize-promises">https://egghead.io/lessons/javascript-redux-wrapping-dispatch-to-recognize-promises</a></p>
+<p>&nbsp;</p>
+<p><a href="https://overreacted.io/a-complete-guide-to-useeffect/">https://overreacted.io/a-complete-guide-to-useeffect/</a></p>
+<p><a href="https://www.robinwieruch.de/react-hooks-fetch-data">https://www.robinwieruch.de/react-hooks-fetch-data</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>react-app-rewired (change create-react-config without ejecting)</strong></p>
+<p><strong><a href="https://egghead.io/lessons/react-customize-create-react-app-cra-without-ejecting-using-react-app-rewired">https://egghead.io/lessons/react-customize-create-react-app-cra-without-ejecting-using-react-app-rewired</a></strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Note:</strong></p>
+<p>One might confuse elements with a more widely known concept of "components". We will introduce components in the&nbsp;<a href="https://facebook.github.io/react/docs/components-and-props.html">next section</a>. Elements are what components are "made of", and we encourage you to read this section before jumping ahead.</p>
+<p><strong>Note:</strong></p>
+<p>In practice, most React apps only call&nbsp;<code>ReactDOM.render()</code>&nbsp;once. In the next sections we will learn how such code gets encapsulated into&nbsp;<a href="https://facebook.github.io/react/docs/state-and-lifecycle.html">stateful components</a>.</p>
+<p>We recommend that you don't skip topics because they build on each other.</p>
+<p><strong>Caveat:</strong></p>
+<p>Always start component names with a capital letter.</p>
+<p>For example,&nbsp;<code>&lt;div /&gt;</code>&nbsp;represents a DOM tag, but&nbsp;<code>&lt;Welcome /&gt;</code>&nbsp;represents a component and requires&nbsp;<code>Welcome</code>&nbsp;to be in scope.</p>
+<p><strong>Caveat:</strong></p>
+<p>Components must return a single root element. This is why we added a&nbsp;<code>&lt;div&gt;</code>&nbsp;to contain all the&nbsp;<code>&lt;Welcome /&gt;</code>&nbsp;elements.</p>
+<p>==</p>
+<p>React is pretty flexible but it has a single strict rule:</p>
+<p><strong>All React components must act like pure functions with respect to their props. (Props are read-only)</strong></p>
+<p>Whether you declare a component&nbsp;<a href="https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components">as a function or a class</a>, it must never modify its own props. Of course, application UIs are dynamic and change over time. In the&nbsp;<a href="https://facebook.github.io/react/docs/state-and-lifecycle.html">next section</a>, we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.</p>
+<p>State is similar to props, but it is private and fully controlled by the component. Local state is exactly that: a feature available only to classes.</p>
+<p>The&nbsp;<code>componentDidMount()</code>&nbsp;hook runs after the component output has been rendered to the DOM.&nbsp;</p>
+<p>If you don't use something in&nbsp;<code>render()</code>, it shouldn't be in the state.</p>
+<p>Whenever setState() is called, render() is called afterwards.&nbsp;</p>
+-KPVodLB0nHfIzjJdIvx
+Working Remote (jobs)
+<p><span style="font-weight: 400;">Not remote, but on a good team:&nbsp;</span></p>
+<p>brian.welter [10:43 AM]<br />https://jobs.northwesternmutual.com/job/Milwaukee-Full-Stack-Engineer-WI-53202/504951200/<br />jobs.northwesternmutual.com<br />Full Stack Engineer<br />Full Stack Engineer</p>
+<p>Looking for a mid-level engineer on my team. Must have demonstrable knowledge of a modern JS framework like React, Angular, or Vue. Core technologies needed are React, Node and SASS.<br />ivan.eisenberg [11:13 AM]<br />^^^ this is for sure worth looking into for any JS devs out there</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">search angel.co for python jobs</span></p>
+<p><span style="font-weight: 400;"><a href="https://angel.co/job-collections/23-remote-friendly-companies">https://angel.co/job-collections/23-remote-friendly-companies</a></span></p>
+<p><a href="https://remote.torre.co/seekers">https://remote.torre.co/seekers</a></p>
+<p><a href="http://headway.io/careers/full-stack-developer/">http://headway.io/careers/full-stack-developer/</a></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Rescue time app 3-2-1-oh! </span></p>
+<p><span style="font-weight: 400;"><a href="https://remote.com/">https://remote.com/</a></span></p>
+<p><span style="font-weight: 400;"><a href="https://news.ycombinator.com/item?id=16282819">https://news.ycombinator.com/item?id=16282819</a></span></p>
+<p><span style="font-weight: 400;"><a href="https://angel.co/">https://angel.co/</a></span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><a href="https://zapier.com/">https://zapier.com/</a></span></p>
+<p><span style="font-weight: 400;"><a href="https://remotebase.io">https://remotebase.io</a></span></p>
+<p><span style="font-weight: 400;"><a href="https://remoteok.io/">https://remoteok.io/</a></span></p>
+<p><a href="http://www.weworkremotely.com">www.weworkremotely.com</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>MKE: not sure if agency or...&nbsp;<a href="http://seventysevencreative.io/">http://seventysevencreative.io/</a></p>
+<p>&nbsp;reach out to @<strong>steve.balistreri </strong>on mke slack</p>
+<p>&nbsp;</p>
+<p>Firms to avoid (says HR-V):</p>
+<p><a href="https://www.kiwitech.com/">https://www.kiwitech.com/</a></p>
+<p><a href="https://urbanft.com/">https://urbanft.com/</a></p>
+<p>&nbsp;</p>
+-KPVomA4Yf4a1PZtdgkT
+F# Blackjack
+<p><span style="font-weight: 400;"><a href="https://github.com/cameronpresley/Blackjack">https://github.com/cameronpresley/Blackjack</a></span></p>
+<p><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;">this looks cool. i should try it sometime. yeah, i really should.</span></p>
+-KPDr1Y9FAQgWDB9ys27
+Your First Note!
+<p>Welcome to FireNote! note</p>
+-KPDrHbqmyEhl-ftbjYd
+Bob
+<p>bob</p>
+-KPDrHbqmyEhl-ftbjYz
+Bob222
+<p>bob222</p>
+-K8W0V2JJ4LvDrciUokg
+First Note!
+Hooray!
+
+I'm first!
+-K8W3ylzhYqzNDVE0Xgy
+Second Note!
+hooray! edit!
+-K8WMbQXcybbUEhxMZHa
+SAMUEL L. IPSUM
+You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.
