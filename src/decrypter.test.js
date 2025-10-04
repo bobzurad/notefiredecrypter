@@ -1,14 +1,17 @@
-import { expect, expectTypeOf, test } from "vitest";
-import { getFileName, parse, decrypt } from "./decrypter.js";
+import { expect, expectTypeOf, test, vi } from "vitest";
+import decrypter from "./decrypter.js";
 
 test("verify filename is parsed correctly", () => {
-  const subject = getFileName("some_path/some_file_to_decrypt.json");
+  // arrange & act
+  const subject = decrypter.getFileName("some_path/some_file_to_decrypt.json");
+
+  // assert
   expect(subject).toBe("some_file_to_decrypt.json");
 });
 
 test("verify notes are parsed correctly", () => {
   // arrange & act
-  const subject = parse("./test-data/encrypted.test.json");
+  const subject = decrypter.parse("./test-data/encrypted.test.json");
 
   // assert
   expectTypeOf(subject).toBeObject();
@@ -56,10 +59,10 @@ test("verify notes are parsed correctly", () => {
 test("verify notes are decrypted", () => {
   // arrange
   const path = "./test-data/encrypted.test.json";
-  const { notes } = parse(path);
+  const { notes } = decrypter.parse(path);
 
   // act
-  const subject = decrypt(path, notes);
+  const subject = decrypter.decrypt(notes);
 
   // assert
   expectTypeOf(subject).toBeObject();
@@ -75,4 +78,17 @@ test("verify notes are decrypted", () => {
   expect(subject.decryptedNotes[7].title).toBe("First Note!");
   expect(subject.decryptedNotes[8].title).toBe("Second Note!");
   expect(subject.decryptedNotes[9].title).toBe("SAMUEL L. IPSUM");
+});
+
+// TODO: this test doesn't actually do anything.
+// To test decrypter.write, mock the file system: https://vitest.dev/guide/mocking.html#file-system
+test("verify decrypted notes are written to file", () => {
+  const mock = vi.fn().mockImplementation(decrypter.write);
+
+  mock.mockImplementationOnce((outputStream, notes) => {
+    return "blah";
+  });
+
+  expect(mock("some_outputStream", [])).toBe("blah");
+  expect(mock).toHaveBeenCalledTimes(1);
 });
